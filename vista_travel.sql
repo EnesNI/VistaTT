@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2025 at 01:32 PM
+-- Generation Time: Feb 09, 2025 at 02:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -49,8 +49,8 @@ CREATE TABLE `offers` (
 --
 
 INSERT INTO `offers` (`id`, `location`, `description`, `room_capacity`, `available_rooms`, `photos`, `created_at`, `price_per_person`, `room_details`, `reviews`, `map_location`, `includes`, `latitude`, `longitude`) VALUES
-(1, 'sadasdas', 'dasdasdasd', 2, 13, 'uploads/19651.webp', '2025-01-30 13:21:12', 0.00, '', NULL, '', '', NULL, NULL),
-(2, 'sadasdas', 'dasdasdasd', 2, 13, '', '2025-01-30 13:22:21', 0.00, '', NULL, '', '', NULL, NULL);
+(4, 'Emporium Hotel', 'Genius discounts at this property are subject to booking dates, stay dates, and other available deals.\r\n\r\nReliable info:Guests say the description and photos for this property are accurate.\r\nOnly 164 feet from Beyazit Tram Stop, Emporium Hotel is 5 minutes\' walk from Grand Bazaar. It features free WiFi, and a Mediterranean-style interior with indoor palm trees, a fountain and soft color patterns.\r\n\r\nAll rooms at Emporium Hotel include air conditioning, a flat-screen TV with satellite channels and a mini-bar. There is an electric kettle and a safety deposit box. Private bathroom comes with free toiletries and a hairdryer.\r\n\r\nThe Emporium’s breakfast room offers a rich breakfast of Turkish dishes each morning. Nearby restaurants and cafes suit all kinds of culinary tastes.\r\n\r\nBlue Mosque, Hagia Sophia and Topkapi Palace are a 15-minute walk away. Emporium Hotel is located opposite Istanbul University. Istanbul Airport is 28 mi from the property.\r\n\r\nCouples in particular like the location – they rated it 9.3 for a two-person trip.', 2, 6, 'uploads/16593202.jpg,uploads/16603285.jpg,uploads/16605661.jpg,uploads/16605709.jpg,uploads/470382915.jpg,uploads/470382921.jpg,uploads/470391728.jpg', '2025-02-08 16:09:47', 0.00, '', NULL, '', '', NULL, NULL),
+(5, 'New Hotel', 'sadasdadasdadsadsa', 3, 13, 'uploads/16593202.jpg,uploads/16603285.jpg,uploads/16605661.jpg,uploads/16605709.jpg,uploads/470382915.jpg,uploads/470382921.jpg,uploads/470391728.jpg', '2025-02-08 21:45:33', 200.00, 'ewwwwwweeeeeeeeeeewwwwwwwwrrrrrrrrrrrrrr', NULL, 'Istambul', 'Standard Double or Twin Room 17 m² Air conditioning Patio Private bathroom Flat-screen TV Soundproof Minibar Free Wifi Room Size 17 m² 2 twin beds Comfy beds, 8.2 – Based on 330 reviews Tastefully decorated, this room offers air conditioning, a flat-scree', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -100,7 +100,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `offers`
 --
 ALTER TABLE `offers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

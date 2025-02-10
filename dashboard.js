@@ -68,3 +68,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const offers = document.querySelectorAll(".offer");
+    const expandedView = document.createElement("div");
+    expandedView.classList.add("offer-expanded");
+    document.body.appendChild(expandedView);
+
+    offers.forEach(offer => {
+        offer.addEventListener("click", function () {
+            const imgSrc = this.querySelector("img").src;
+            const title = this.querySelector(".offer-title").innerText;
+            const details = this.querySelector(".room-details").innerText;
+            const price = this.querySelector(".price").innerText;
+            const rating = this.dataset.rating;
+            const description = this.dataset.description;
+
+            expandedView.innerHTML = `
+                <img src="${imgSrc}" alt="Offer Image">
+                <div class="offer-info">
+                    <div class="rating">⭐ ${rating}</div>
+                    <h2>${title}</h2>
+                    <p class="room-details">${details}</p>
+                    <p class="price">${price}</p>
+                    <button class="reserve-button">Reserve</button>
+                    <p class="offer-description">${description}</p>
+                </div>
+            `;
+
+            expandedView.style.display = "flex";
+
+            // Clicking anywhere inside expands to fullscreen and shows description
+            expandedView.addEventListener("click", function () {
+                expandedView.classList.toggle("fullscreen");
+            });
+        });
+    });
+});

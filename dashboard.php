@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include 'config.php'; // Database connection
 
@@ -20,7 +20,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Vista Travel</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="dashboardd.css">
 </head>
 <body>
     <div class="dashboard-container">
@@ -38,11 +38,16 @@ $conn->close();
         <!-- Offers Grid -->
         <div class="offers-grid">
             <?php foreach ($offers as $offer): ?>
-                <div class="offer-window" data-id="<?php echo $offer['id']; ?>">
-                    <img src="<?php echo explode(',', $offer['photos'])[0]; ?>" alt="Offer Photo">
-                    <h3><?php echo $offer['location']; ?></h3>
-                    <p><?php echo $offer['description']; ?></p>
-                    <p><strong>Price:</strong> $<?php echo $offer['price_per_person']; ?> per person</p>
+                <div class="offer-window" data-id="<?php echo $offer['id']; ?>" onclick="showOfferDetails(<?php echo $offer['id']; ?>)">
+                    <img class="offer-image" src="<?php echo explode(',', $offer['photos'])[0]; ?>" alt="Offer Photo">
+                    <div class="offer-info">
+                        <h3 class="offer-title"><?php echo $offer['location']; ?></h3>
+                        <p class="offer-room-details"><?php echo $offer['room_details']; ?></p>
+                        <div class="offer-bottom">
+                            <p class="offer-price"><strong>Price:</strong> $<?php echo $offer['price_per_person']; ?> per person</p>
+                            <button class="reserve-button">Reserve</button>
+                        </div>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
