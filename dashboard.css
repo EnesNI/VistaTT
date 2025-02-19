@@ -1,0 +1,324 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.dashboard-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-bar input, .search-bar button {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+}
+
+.search-bar input {
+    flex: 1;
+    background: #f0f0f0;
+    padding-left: 20px;
+}
+
+#search-button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    padding: 12px 20px;
+    font-weight: bold;
+}
+
+#search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Offers Grid */
+.offers-grid {
+    display: center;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.offer-window {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    height: 200px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.offer-window:hover {
+    transform: scale(1.05);
+}
+
+.offer-image {
+    width: 180px;
+    height: 100%;
+    object-fit: cover;
+    border-right: 2px solid #ddd;
+}
+
+.offer-info {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+.offer-title {
+    font-size: 22px;
+    color: #333;
+    margin: 0;
+}
+
+.offer-room-details {
+    font-size: 16px;
+    color: #555;
+    margin: 8px 0;
+}
+
+.offer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.offer-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.reserve-button {
+    padding: 10px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.reserve-button:hover {
+    background: #0056b3;
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    backdrop-filter: blur(10px); /* Blurred background */
+}
+
+/* Fullscreen Modal Content */
+.modal-content {
+    background: rgba(255, 255, 255, 0.15); /* Transparent white */
+    backdrop-filter: blur(20px); /* Stronger blur for better focus */
+    border-radius: 20px; /* Smooth rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box; /* Ensure padding is included */
+    animation: fadeIn 0.4s ease-in-out;
+    color: #fff;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close:hover {
+    transform: scale(1.2); /* Enlarge on hover */
+}
+
+/* Left Side - Image Section */
+.modal-left {
+    flex: 1.2; /* Take 1.2x the space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-photo {
+    width: 80%;
+    max-height: 80%;
+    border-radius: 16px; /* Rounded edges */
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+#modal-photo:hover {
+    transform: scale(1.05); /* Image zoom on hover */
+}
+
+/* Photo Navigation (Left/Right Arrows) */
+.photo-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.photo-navigation button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.photo-navigation button:hover {
+    background: rgba(255, 255, 255, 0.4); /* Lighter on hover */
+}
+
+/* Right Side - Details Section */
+.modal-right {
+    flex: 1; /* Normal width */
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    overflow-y: auto; /* Scroll if content overflows */
+}
+
+/* Title & Reviews */
+.modal-right h3 {
+    margin: 0;
+    font-size: 28px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 8px;
+}
+
+/* Map Section */
+.map iframe {
+    width: 100%;
+    height: 300px; /* Larger map */
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+/* Details Section */
+.details p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* Price Section */
+.price {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.price p {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* Reserve Button */
+#reserve-button {
+    width: 80%;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#reserve-button:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 1024px) {
+    .modal-content {
+        flex-direction: column; /* Stack vertically */
+        height: auto;
+        padding: 20px;
+    }
+
+    .modal-left {
+        margin-bottom: 20px; /* Space below image */
+    }
+
+    #modal-photo {
+        width: 100%;
+    }
+
+    #reserve-button {
+        width: 100%;
+    }
+}

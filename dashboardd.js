@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeModal = document.querySelector('.close');
     const modalPhoto = document.getElementById('modal-photo');
     const modalReviews = document.getElementById('modal-reviews');
-    const modalMap = document.getElementById('modal-map');
     const modalRoomDetails = document.getElementById('modal-room-details');
     const modalIncludes = document.getElementById('modal-includes');
     const modalAvailableRooms = document.getElementById('modal-available-rooms');
@@ -14,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentOffer = null;
     let currentPhotoIndex = 0;
+    let photos = [];
 
     // Open modal when an offer is clicked
     offerWindows.forEach(offer => {
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(data => {
                     currentOffer = data;
                     currentPhotoIndex = 0;
+                    photos = currentOffer.photos.split(',');
                     updateModal();
                     modal.style.display = 'flex';
                 });
@@ -37,70 +38,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Navigate photos
     prevPhotoButton.addEventListener('click', () => {
-        if (currentPhotoIndex > 0) {
-            currentPhotoIndex--;
-            updateModalPhoto();
-        }
+        currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+        updateModalPhoto();
     });
 
     nextPhotoButton.addEventListener('click', () => {
-        if (currentPhotoIndex < currentOffer.photos.length - 1) {
-            currentPhotoIndex++;
-            updateModalPhoto();
-        }
+        currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+        updateModalPhoto();
     });
 
     // Update modal content
     function updateModal() {
-        const photos = currentOffer.photos.split(',');
-        modalPhoto.src = photos[currentPhotoIndex];
+        updateModalPhoto();
         modalReviews.textContent = currentOffer.reviews || 'No reviews yet.';
-        modalMap.src = currentOffer.map_location;
         modalRoomDetails.textContent = currentOffer.room_details;
         modalIncludes.textContent = `Includes: ${currentOffer.includes}`;
         modalAvailableRooms.textContent = `Available Rooms: ${currentOffer.available_rooms}`;
         modalTotalPrice.textContent = `Total Price: $${currentOffer.price_per_person}`;
+
+        // Initialize Google Map
+        initMap(currentOffer.latitude, currentOffer.longitude);
     }
 
     function updateModalPhoto() {
-        const photos = currentOffer.photos.split(',');
-        modalPhoto.src = photos[currentPhotoIndex];
+        if (photos.length > 0) {
+            modalPhoto.src = photos[currentPhotoIndex];
+        }
     }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    const offers = document.querySelectorAll(".offer");
-    const expandedView = document.createElement("div");
-    expandedView.classList.add("offer-expanded");
-    document.body.appendChild(expandedView);
+    // Initialize Google Map with offer location
+    function initMap(lat, lng) {
+        const mapContainer = document.getElementById("map-container");
+        if (!mapContainer) return;
 
-    offers.forEach(offer => {
-        offer.addEventListener("click", function () {
-            const imgSrc = this.querySelector("img").src;
-            const title = this.querySelector(".offer-title").innerText;
-            const details = this.querySelector(".room-details").innerText;
-            const price = this.querySelector(".price").innerText;
-            const rating = this.dataset.rating;
-            const description = this.dataset.description;
-
-            expandedView.innerHTML = `
-                <img src="${imgSrc}" alt="Offer Image">
-                <div class="offer-info">
-                    <div class="rating">⭐ ${rating}</div>
-                    <h2>${title}</h2>
-                    <p class="room-details">${details}</p>
-                    <p class="price">${price}</p>
-                    <button class="reserve-button">Reserve</button>
-                    <p class="offer-description">${description}</p>
-                </div>
-            `;
-
-            expandedView.style.display = "flex";
-
-            // Clicking anywhere inside expands to fullscreen and shows description
-            expandedView.addEventListener("click", function () {
-                expandedView.classList.toggle("fullscreen");
-            });
+        const map = new google.maps.Map(mapContainer, {
+            center: { lat: parseFloat(lat), lng: parseFloat(lng) },
+            zoom: 14,
         });
-    });
+
+        new google.maps.Marker({
+            position: { lat: parseFloat(lat), lng: parseFloat(lng) },
+            map: map,
+            title: "Offer Location",
+        });
+    }
 });

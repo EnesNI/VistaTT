@@ -20,7 +20,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Vista Travel</title>
-    <link rel="stylesheet" href="dashboardd.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
     <div class="dashboard-container">
@@ -60,8 +60,8 @@ $conn->close();
             <div class="modal-left">
                 <img id="modal-photo" src="" alt="Offer Photo">
                 <div class="photo-navigation">
-                    <button id="prev-photo">&#10094;</button>
-                    <button id="next-photo">&#10095;</button>
+                    <button id="prev-photo">❮ Prev</button>
+                    <button id="next-photo">Next ❯</button>
                 </div>
             </div>
             <div class="modal-right">
@@ -71,7 +71,7 @@ $conn->close();
                 </div>
                 <div class="map">
                     <h3>Location</h3>
-                    <iframe id="modal-map" src="" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div id="map-container" style="width: 100%; height: 200px; border-radius: 10px;"></div>
                 </div>
                 <div class="details">
                     <h3>Details</h3>
@@ -88,6 +88,7 @@ $conn->close();
         </div>
     </div>
 
-    <script src="dashboard.js"></script>
+    <script src="dashboardd.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsf6zTNX-iDmWmX0GBzmZupExTeHPVc1Q&callback=initMap"></script>
 </body>
 </html>
