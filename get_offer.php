@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php'; // Database connection
+include 'config.php'; 
 
 $id = $_GET['id'];
 

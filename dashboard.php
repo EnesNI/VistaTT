@@ -1,8 +1,8 @@
 <?php 
 session_start();
-include 'config.php'; // Database connection
+include 'config.php'; 
 
-// Fetch all offers from the database
+
 $offers = [];
 $result = $conn->query("SELECT * FROM offers ORDER BY created_at DESC");
 if ($result->num_rows > 0) {
@@ -26,7 +26,7 @@ $conn->close();
     <div class="dashboard-container">
         <h1>Find Your Perfect Stay</h1>
 
-        <!-- Search Bar -->
+        
         <div class="search-bar">
             <input type="text" id="destination" placeholder="Destination">
             <input type="date" id="check-in" placeholder="Check-In Date">
@@ -35,7 +35,7 @@ $conn->close();
             <button id="search-button">Search</button>
         </div>
 
-        <!-- Offers Grid -->
+      
         <div class="offers-grid">
             <?php foreach ($offers as $offer): ?>
                 <div class="offer-window" data-id="<?php echo $offer['id']; ?>" onclick="showOfferDetails(<?php echo $offer['id']; ?>)">
@@ -53,7 +53,7 @@ $conn->close();
         </div>
     </div>
 
-    <!-- Detailed Offer Modal -->
+   
     <div id="offer-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>

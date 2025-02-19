@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentPhotoIndex = 0;
     let photos = [];
 
-    // Open modal when an offer is clicked
+  
     offerWindows.forEach(offer => {
         offer.addEventListener('click', () => {
             const offerId = offer.getAttribute('data-id');
@@ -31,12 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Close modal
+
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
 
-    // Navigate photos
     prevPhotoButton.addEventListener('click', () => {
         currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
         updateModalPhoto();
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateModalPhoto();
     });
 
-    // Update modal content
+
     function updateModal() {
         updateModalPhoto();
         modalReviews.textContent = currentOffer.reviews || 'No reviews yet.';
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         modalAvailableRooms.textContent = `Available Rooms: ${currentOffer.available_rooms}`;
         modalTotalPrice.textContent = `Total Price: $${currentOffer.price_per_person}`;
 
-        // Initialize Google Map
+
         initMap(currentOffer.latitude, currentOffer.longitude);
     }
 
@@ -66,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Initialize Google Map with offer location
+ 
     function initMap(lat, lng) {
         const mapContainer = document.getElementById("map-container");
         if (!mapContainer) return;

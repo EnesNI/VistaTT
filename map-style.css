@@ -1,4 +1,4 @@
-/* General Styling */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Navbar Styling */
+
 .navbar {
     position: absolute;
     top: 0;
@@ -50,14 +50,14 @@
     border-bottom: 2px solid #1abc9c;
 }
 
-/* Fullscreen Map */
+
 #map {
     height: 100vh;
     width: 100%;
-    margin-top: 50px; /* Push below navbar */
+    margin-top: 50px; 
 }
 
-/* Info Window Style */
+
 .info-window {
     max-width: 250px;
     padding: 10px;

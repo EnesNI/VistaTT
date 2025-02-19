@@ -1,9 +1,9 @@
-/* General Body Styling */
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background matching index.html */
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,7 @@ body {
     color: #333;
 }
 
-/* Container Styling */
+
 .login-container, .signup-container {
     background: rgba(255, 255, 255, 0.9);
     padding: 2rem;
@@ -23,7 +23,7 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Form Styling */
+
 form {
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@ input[type="email"], input[type="password"], input[type="text"] {
 }
 
 input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus {
-    border-color: #007bff; /* Blue focus border matching index.html buttons */
+    border-color: #007bff;
     outline: none;
 }
 
@@ -53,33 +53,33 @@ button {
     padding: 1rem 2rem;
     font-size: 1.2rem;
     border: none;
-    border-radius: 30px; /* Rounded corners matching index.html buttons */
+    border-radius: 30px; 
     cursor: pointer;
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, #007bff, #00bcd4); /* Gradient matching login button in index.html */
+    background: linear-gradient(135deg, #007bff, #00bcd4); 
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background: linear-gradient(135deg, #0056b3, #0097a7); /* Darker gradient on hover */
-    transform: translateY(-3px); /* Slight lift effect */
+    background: linear-gradient(135deg, #0056b3, #0097a7); 
+    transform: translateY(-3px); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-    transform: translateY(0); /* Reset lift effect on click */
+    transform: translateY(0); 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading Styling */
+
 h2 {
     margin-bottom: 1.5rem;
-    color: #007bff; /* Blue color matching index.html buttons */
+    color: #007bff; 
     font-size: 2rem;
 }
 
-/* Animation */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -91,7 +91,7 @@ h2 {
     }
 }
 
-/* Responsive Design */
+
 @media (max-width: 480px) {
     .login-container, .signup-container {
         padding: 1rem;

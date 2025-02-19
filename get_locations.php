@@ -1,9 +1,9 @@
 <?php
-// Database connection
+
 $servername = "localhost";
-$username = "root";  // Replace with your database username
-$password = "";  // Replace with your database password
-$dbname = "vista_travel";  // Replace with your database name
+$username = "root"; 
+$password = "";  
+$dbname = "vista_travel";  
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch all locations from the database
+
 $sql = "SELECT latitude, longitude FROM offers";
 $result = $conn->query($sql);
 
@@ -26,6 +26,6 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 
-// Return the locations as a JSON response
+
 echo json_encode($locations);
 ?>

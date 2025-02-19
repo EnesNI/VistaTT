@@ -8,7 +8,7 @@ if (!isset($_SESSION['admin'])) {
 
 include 'config.php';
 
-// Handle form submission for posting offers
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $location = $_POST['location'];
     $description = $_POST['description'];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
 
-    // Handle file uploads
+
     $photos = [];
     if (!empty($_FILES['photos']['name'][0])) {
         foreach ($_FILES['photos']['tmp_name'] as $key => $tmp_name) {
@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    $photos_str = implode(',', $photos); // Convert array to comma-separated string
+    $photos_str = implode(',', $photos); 
 
-    // Insert offer into the database
+ 
     $stmt = $conn->prepare("INSERT INTO offers (location, description, room_capacity, available_rooms, price_per_person, room_details, latitude, longitude, includes, photos) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssiissddss", $location, $description, $room_capacity, $available_rooms, $price_per_person, $room_details, $latitude, $longitude, $includes, $photos_str);
 
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close();
 }
 
-// Fetch all offers from the database
+
 $offers = [];
 $result = $conn->query("SELECT * FROM offers ORDER BY created_at DESC");
 if ($result->num_rows > 0) {
@@ -79,31 +79,31 @@ $conn->close();
         let map, marker;
 
         function initMap() {
-            // Initialize the map with a default location (New York City)
+           
             map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 40.7128, lng: -74.0060 }, // Default location
+                center: { lat: 40.7128, lng: -74.0060 },
                 zoom: 10
             });
 
-            // Add a click listener on the map to place the marker and get coordinates
+           
             map.addListener('click', function(event) {
                 placeMarker(event.latLng);
             });
         }
 
         function placeMarker(latLng) {
-            // Remove the previous marker if any
+      
             if (marker) {
                 marker.setMap(null);
             }
 
-            // Create a new marker at the clicked location
+
             marker = new google.maps.Marker({
                 position: latLng,
                 map: map
             });
 
-            // Set the latitude and longitude values in the hidden inputs
+    
             document.getElementById('latitude').value = latLng.lat();
             document.getElementById('longitude').value = latLng.lng();
         }
@@ -114,7 +114,7 @@ $conn->close();
     <h1>Admin Panel</h1>
     <a href="logout.php" style="float: right; color: red; text-decoration: none;">Logout</a> <!-- Logout button -->
 
-    <!-- Form to post new offers -->
+
     <form action="admin.php" method="POST" enctype="multipart/form-data">
         <label for="location">Location:</label>
         <input type="text" id="location" name="location" required>
@@ -141,7 +141,7 @@ $conn->close();
         <input type="text" id="latitude" name="latitude" placeholder="Latitude" required>
         <input type="text" id="longitude" name="longitude" placeholder="Longitude" required>
 
-        <!-- Google Map -->
+     
         <div id="map"></div>
 
         <label for="photos">Upload Photos:</label>
@@ -150,7 +150,7 @@ $conn->close();
         <button type="submit">Post Offer</button>
     </form>
 
-    <!-- Display all offers -->
+   
     <h2>Posted Offers</h2>
     <div class="offers-list">
         <?php foreach ($offers as $offer): ?>

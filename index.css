@@ -64,12 +64,12 @@ body, html {
 
 
 
-/* Updated Button Styles */
+
 .btn {
     padding: 1rem 2rem;
     font-size: 1.2rem;
     border: none;
-    border-radius: 30px; /* More rounded corners */
+    border-radius: 30px; 
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -77,43 +77,43 @@ body, html {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Login Button */
+
 .login {
-    background: linear-gradient(135deg, #007bff, #00bcd4); /* Gradient background */
+    background: linear-gradient(135deg, #007bff, #00bcd4); 
     color: #fff;
     border: 2px solid transparent;
 }
 
 .login:hover {
-    background: linear-gradient(135deg, #0056b3, #0097a7); /* Darker gradient on hover */
-    transform: translateY(-3px); /* Slight lift effect */
+    background: linear-gradient(135deg, #0056b3, #0097a7); 
+    transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .login:active {
-    transform: translateY(0); /* Reset lift effect on click */
+    transform: translateY(0); 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Signup Button */
+
 .signup {
-    background: linear-gradient(135deg, #007bff, #00bcd4); /* Gradient background */
+    background: linear-gradient(135deg, #007bff, #00bcd4); 
     color: #fff;
     border: 2px solid transparent;
 }
 
 .signup:hover {
-    background: linear-gradient(135deg,  #007bff, #00bcd4); /* Darker gradient on hover */
-    transform: translateY(-3px); /* Slight lift effect */
+    background: linear-gradient(135deg,  #007bff, #00bcd4);
+    transform: translateY(-3px); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .signup:active {
-    transform: translateY(0); /* Reset lift effect on click */
+    transform: translateY(0); 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Optional: Add a ripple effect on click */
+
 .btn::after {
     content: '';
     position: absolute;
@@ -142,7 +142,7 @@ body, html {
     }
 
     .logo img {
-        width: 150px; /* Smaller logo for smaller screens */
+        width: 150px; 
     }
 
     .nav-links {
@@ -157,11 +157,11 @@ body, html {
     }
 
     .content {
-        margin-bottom: 100px; /* Less margin on smaller screens */
+        margin-bottom: 100px;
     }
 
     .btn {
-        width: 180px; /* Slightly smaller buttons for mobile */
+        width: 180px; 
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
@@ -169,7 +169,7 @@ body, html {
 
 @media (max-width: 480px) {
     .logo img {
-        width: 150px; /* Even smaller logo for very small screens */
+        width: 150px;
     }
 
     .nav-links a {

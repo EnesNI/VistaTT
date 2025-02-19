@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-// Check if the user is logged in as admin
+
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
     exit();
 }
 
-include 'config.php'; // Database connection
+include 'config.php'; 
 
 $id = $_GET['id'];
 
-// Fetch the offer to edit
+
 $stmt = $conn->prepare("SELECT * FROM offers WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -19,7 +19,7 @@ $result = $stmt->get_result();
 $offer = $result->fetch_assoc();
 $stmt->close();
 
-// Handle form submission for updating the offer
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $location = $_POST['location'];
     $description = $_POST['description'];

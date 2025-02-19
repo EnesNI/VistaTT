@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-// Check if the user is logged in as admin
+
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
     exit();
 }
 
-include 'config.php'; // Database connection
+include 'config.php'; 
 
 $id = $_GET['id'];
 
-// Delete the offer
+
 $stmt = $conn->prepare("DELETE FROM offers WHERE id = ?");
 $stmt->bind_param("i", $id);
 

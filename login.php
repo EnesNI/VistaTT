@@ -30,20 +30,20 @@
 
 <?php
 session_start();
-include 'config.php'; // Database connection
+include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Hardcoded admin credentials
+
     if ($email === 'admin@gmail.com' && $password === 'admin123') {
-        $_SESSION['admin'] = true; // Set admin session
-        header("Location: admin.php"); // Redirect to admin page
+        $_SESSION['admin'] = true; 
+        header("Location: admin.php"); 
         exit();
     }
 
-    // Regular user login
+
     $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($password, $hashed_password)) {
             $_SESSION['user_id'] = $id;
             $_SESSION['email'] = $email;
-            header("Location: dashboard.php"); // Redirect to dashboard.php
+            header("Location: dashboard.php"); 
             exit();
         } else {
             echo "Invalid password!";
