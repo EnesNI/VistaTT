@@ -110,10 +110,12 @@ $conn->close();
     </script>
 </head>
 <body onload="initMap()">
+<a href="logout.php" style="float: right; color: red; text-decoration: none;">Logout</a> <!-- Logout button -->
+<a href="users.admin.php"   style="float: right; color: blue; text-decoration: none;">Users</a>
+<a href="dashboard.php"   style="float: right; color: blue; text-decoration: none;">Dashboard</a>
 <div class="admin-container">
-    <h1>Admin Panel</h1>
-    <a href="logout.php" style="float: right; color: red; text-decoration: none;">Logout</a> <!-- Logout button -->
-
+    <h1>Admin Panel</h1>                 
+   
 
     <form action="admin.php" method="POST" enctype="multipart/form-data">
         <label for="location">Location:</label>

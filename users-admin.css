@@ -6,19 +6,28 @@ body {
 }
 
 .admin-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 h1, h2 {
     color: #333;
+    text-align: center;
 }
 
 form {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+form input[type="text"] {
+    flex: 1;
 }
 
 label {
@@ -30,7 +39,6 @@ label {
 input[type="text"], textarea, input[type="number"], input[type="file"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -42,6 +50,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 button:hover {
@@ -72,4 +81,38 @@ a:hover {
     text-decoration: underline;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+table th {
+    background: #007bff;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+table tr:hover {
+    background: #f1f1f1;
+}
+
+.edit-form {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.edit-form h2 {
+    margin-top: 0;
+}
